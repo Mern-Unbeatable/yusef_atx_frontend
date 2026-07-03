@@ -1,8 +1,24 @@
 /* ==========================================================================
    ATHLETIC ALIGNMENT LAB — style.css
    Palette: deep indigo-navy background, orange accent, cool blue tags,
-   light cards for pricing. Type: Anton (display) / Inter (body)
+   light cards for pricing. Type: General Sans (brand typeface)
    ========================================================================== */
+
+@font-face{
+  font-family:"General Sans";
+  src:url("../fonts/GeneralSans-Regular.otf") format("opentype");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"General Sans";
+  src:url("../fonts/GeneralSans-Semibold.otf") format("opentype");
+  font-weight:600; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"General Sans";
+  src:url("../fonts/GeneralSans-Bold.otf") format("opentype");
+  font-weight:700; font-style:normal; font-display:swap;
+}
 
 :root{
   --bg:        #150E2B;
@@ -18,14 +34,14 @@
   --blue:      #8CA0F5;
   --line:      rgba(255,255,255,.14);
 
-  --font-display: "Anton", "Inter", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "General Sans", sans-serif;
+  --font-body: "General Sans", sans-serif;
 
   --radius-s: 8px;
   --radius-m: 16px;
   --radius-l: 24px;
   --ease: cubic-bezier(.16,.84,.44,1);
-  --container: 1180px;
+  --container: 1400px;
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
@@ -62,13 +78,14 @@ input,textarea{ font-family:inherit; }
 .eyebrow::after{ content:""; width:60px; height:1px; background:var(--line); }
 
 .section-title{
-  font-family:var(--font-display); font-weight:400; text-transform:uppercase;
-  font-size:clamp(1.8rem,4vw,2.7rem); line-height:1.15; letter-spacing:.01em;
+  font-family:var(--font-display); font-weight:700; text-transform:uppercase;
+  font-size:clamp(1.8rem,4vw,2.7rem); line-height:1.15; letter-spacing:-.01em;
   margin:0 0 18px;
 }
 .section-lead{ color:var(--ink-muted); max-width:620px; margin:0 0 44px; font-size:1.02rem; }
 
 .text-accent{ color:var(--accent); }
+.eyebrow.eyebrow-blue{ color:var(--blue); }
 
 /* ---------- Reveal on scroll ---------- */
 .reveal{ opacity:0; transform:translateY(26px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
@@ -137,7 +154,7 @@ input,textarea{ font-family:inherit; }
 
 .hero-title{
   font-family:var(--font-display); font-weight:400; text-transform:uppercase;
-  font-size:clamp(2.1rem,5vw,3.4rem); line-height:1.14; margin:0 0 20px;
+  font-size:clamp(4.1rem,5vw,3.4rem); line-height:1.20; margin:0 0 20px;
 }
 .hero-sub{ color:var(--ink-muted); max-width:480px; margin:0 0 30px; }
 
@@ -300,6 +317,11 @@ input,textarea{ font-family:inherit; }
 .site-footer{ padding:60px 0 30px; border-top:1px solid var(--line); }
 .footer-top{ display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:50px; }
 .footer-brand .brand-text{ margin-top:14px; font-size:.95rem; letter-spacing:.05em; }
+.footer-brand-text{
+  color:var(--accent);
+  font-size:1.1rem;
+  margin-top:12px;
+}
 .footer-cols{ display:flex; gap:70px; flex-wrap:wrap; }
 .footer-col h4{ font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin:0 0 16px; }
 .footer-col ul{ display:flex; flex-direction:column; gap:10px; }
@@ -361,7 +383,7 @@ input,textarea{ font-family:inherit; }
    ========================================================================== */
 .contact-section{ padding:170px 0 110px; }
 .contact-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; }
-@media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; } }
+@media (max-width:1400px){ .contact-grid{ grid-template-columns:1fr; } }
 .contact-info p{ color:var(--ink-muted); max-width:400px; margin:0 0 30px; }
 .contact-detail{ margin-bottom:14px; font-size:.98rem; }
 .contact-detail strong{ color:var(--ink); }

@@ -1,0 +1,22 @@
+/* Packages page specific styles */
+
+.packages-hero{
+  padding-bottom:20px;
+}
+
+.packages-hero-container{
+  max-width:760px;
+}
+
+.packages-faq-section{
+  padding-top:0;
+}
+
+.packages-faq-title{
+  text-align:center;
+  margin-bottom:44px;
+}
+
+.packages-faq-answer-initial{
+  max-height:200px;
+}

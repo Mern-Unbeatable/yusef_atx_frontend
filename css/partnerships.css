@@ -1,0 +1,28 @@
+/* Partnerships page specific styles */
+
+.eyebrow-centered{
+  justify-content:center;
+}
+
+.workwith-cta-wrap{
+  text-align:center;
+}
+
+.partner-contact-section{
+  padding-top:20px;
+}
+
+.partner-contact-header{
+  max-width:640px;
+  margin:0 auto 50px;
+  text-align:center;
+}
+
+.partner-contact-lead{
+  color:var(--ink-muted);
+}
+
+.partner-contact-form{
+  max-width:820px;
+  margin-inline:auto;
+}
