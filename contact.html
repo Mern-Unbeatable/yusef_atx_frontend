@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Athletic Alignment Lab</title>
+<meta name="description" content="Questions before scheduling? Get in touch with Athletic Alignment Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="40" height="30" viewBox="0 0 60 44"><path d="M0 44 L20 0 L30 0 L10 44 Z" fill="currentColor"/><path d="M22 44 L42 0 L60 0 L40 44 Z" fill="currentColor" opacity=".55"/></svg>
+      </span>
+      <span class="brand-text">ATHLETIC<br>ALIGNMENT<br>LAB</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="packages.html" class="nav-link">Packages</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a session</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="contact-section">
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Contact</span>
+        <h1 class="hero-title" style="font-size:clamp(1.8rem,4vw,2.7rem);">Questions before scheduling?</h1>
+        <p>If you are unsure which package to go with, or have questions about our process please fill out the form and we'll contact you promptly.</p>
+        <p class="contact-detail"><strong>Email:</strong> <a href="mailto:info@athleticalignmentlab.com">info@athleticalignmentlab.com</a></p>
+        <p class="contact-detail"><strong>Phone:</strong> <a href="tel:5555555555">555-555-5555</a></p>
+      </div>
+
+      <form class="form-panel reveal" data-validate novalidate>
+        <div class="form-field">
+          <label for="c-name">Full Name</label>
+          <input type="text" id="c-name" name="name" required>
+          <span class="field-error"></span>
+        </div>
+        <div class="form-field">
+          <label for="c-phone">Phone</label>
+          <input type="tel" id="c-phone" name="phone" required>
+          <span class="field-error"></span>
+        </div>
+        <div class="form-field">
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" name="email" required>
+          <span class="field-error"></span>
+        </div>
+        <div class="form-field">
+          <label for="c-message">Please state your question or concerns</label>
+          <textarea id="c-message" name="message" rows="4" required></textarea>
+          <span class="field-error"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Let's talk</button>
+        <p class="form-success">Thanks — your message is in. We'll be in touch shortly.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="46" height="34" viewBox="0 0 60 44"><path d="M0 44 L20 0 L30 0 L10 44 Z" fill="currentColor"/><path d="M22 44 L42 0 L60 0 L40 44 Z" fill="currentColor" opacity=".55"/></svg>
+          </span>
+        </a>
+        <p class="brand-text" style="color:var(--accent); font-size:1.1rem; margin-top:12px;">ATHLETIC<br>ALIGNMENT<br>LAB</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="partnerships.html">Partnerships</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow us</h4>
+          <ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <ul><li><a href="#">123 South Congress Ave.</a></li><li><a href="#">Austin, TX 77777</a></li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="#">Privacy</a>
+      <a href="#">Terms &amp; Condition</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
