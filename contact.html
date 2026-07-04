@@ -42,7 +42,7 @@
           <a href="about.html" class="nav-link">About</a>
           <a href="partnerships.html" class="nav-link">Partnerships</a>
           <a href="contact.html" class="nav-link">Contact</a>
-          <a href="contact.html" class="btn btn-primary btn-sm"
+          <a href="mailto:info@athleticalignmentlab.com" class="btn btn-primary btn-sm"
             >Book a session</a
           >
         </nav>
@@ -74,7 +74,13 @@
             </p>
           </div>
 
-          <form class="form-panel reveal" data-validate novalidate>
+          <form
+            id="contactForm"
+            class="form-panel reveal"
+            data-validate
+            data-mailto
+            novalidate
+          >
             <div class="form-field">
               <label for="c-name">Full Name</label>
               <input type="text" id="c-name" name="name" required />
@@ -104,7 +110,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Let's talk</button>
             <p class="form-success">
-              Thanks — your message is in. We'll be in touch shortly.
+              Opening your email app with your message pre-filled...
             </p>
           </form>
         </div>

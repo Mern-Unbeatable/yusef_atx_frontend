@@ -125,12 +125,82 @@
     update();
   });
 
-  /* ---------- Generic form validation ---------- */
+  /* ---------- Form validation + mailto submit ---------- */
+  const MAILTO_EMAIL = "info@athleticalignmentlab.com";
+
+  function collectFormData(form) {
+    const fields = [];
+    form.querySelectorAll(".form-field").forEach((wrap) => {
+      const label = wrap.querySelector("label");
+      const field = wrap.querySelector("input, textarea, select");
+      if (!field) return;
+      const value = field.value.trim();
+      if (!value) return;
+      fields.push({
+        name: field.name,
+        label: label
+          ? label.textContent.trim().replace(/\s+/g, " ")
+          : field.name,
+        value,
+      });
+    });
+    return fields;
+  }
+
+  function buildMailUrls(fields, form) {
+    const body = fields.map((f) => `${f.label}: ${f.value}`).join("\n");
+    const name = fields.find((f) => f.name === "name")?.value || "Unknown";
+    let subject;
+
+    if (form.classList.contains("partner-contact-form")) {
+      const company = fields.find((f) => f.name === "company")?.value;
+      subject = company
+        ? `New Partnership Inquiry from ${name} - ${company}`
+        : `New Partnership Inquiry from ${name}`;
+    } else {
+      subject = `New Inquiry from ${name}`;
+    }
+
+    const mailtoUrl = `mailto:${MAILTO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(MAILTO_EMAIL)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    return { mailtoUrl, gmailUrl };
+  }
+
+  function openMailClient(mailtoUrl) {
+    const link = document.createElement("a");
+    link.href = mailtoUrl;
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  function showMailtoFallback(form, urls) {
+    let fallback = form.querySelector(".form-mailto-fallback");
+    if (!fallback) {
+      fallback = document.createElement("p");
+      fallback.className = "form-mailto-fallback";
+      form.appendChild(fallback);
+    }
+
+    fallback.innerHTML =
+      'If your email app did not open, <a href="' +
+      urls.mailtoUrl +
+      '">open in your email app</a> or ' +
+      '<a href="' +
+      urls.gmailUrl +
+      '" target="_blank" rel="noopener noreferrer">compose in Gmail</a>.';
+    fallback.hidden = false;
+  }
+
   document.querySelectorAll("form[data-validate]").forEach((form) => {
     const successMsg = form.querySelector(".form-success");
+    const defaultSuccessText = successMsg?.textContent.trim() || "";
 
     function setError(field, message) {
       const wrap = field.closest(".form-field");
+      if (!wrap) return;
       const errorEl = wrap.querySelector(".field-error");
       if (message) {
         wrap.classList.add("has-error");
@@ -138,6 +208,14 @@
       } else {
         wrap.classList.remove("has-error");
         if (errorEl) errorEl.textContent = "";
+      }
+    }
+
+    function clearMailtoFallback() {
+      const fallback = form.querySelector(".form-mailto-fallback");
+      if (fallback) {
+        fallback.hidden = true;
+        fallback.innerHTML = "";
       }
     }
 
@@ -161,11 +239,22 @@
 
       if (!valid) return;
 
-      if (successMsg) {
-        successMsg.classList.add("show");
-        setTimeout(() => successMsg.classList.remove("show"), 5000);
+      const fields = collectFormData(form);
+
+      if (form.hasAttribute("data-mailto")) {
+        const urls = buildMailUrls(fields, form);
+        openMailClient(urls.mailtoUrl);
+        showMailtoFallback(form, urls);
       }
-      form.reset();
+
+      if (successMsg) {
+        successMsg.textContent = defaultSuccessText;
+        successMsg.classList.add("show");
+      }
+
+      window.setTimeout(() => form.reset(), 300);
     });
+
+    form.addEventListener("input", clearMailtoFallback);
   });
 })();

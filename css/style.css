@@ -1557,6 +1557,20 @@ textarea {
   height: auto;
   margin-top: 18px;
 }
+.form-mailto-fallback {
+  margin: 12px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+.form-mailto-fallback a {
+  color: var(--accent-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.form-mailto-fallback a:hover {
+  color: var(--accent);
+}
 
 a:focus-visible,
 button:focus-visible,
