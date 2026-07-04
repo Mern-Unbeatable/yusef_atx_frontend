@@ -1,8 +1,3 @@
-/* ==========================================================================
-   ATHLETIC ALIGNMENT LAB — script.js
-   Sticky header, mobile nav, scroll reveal, FAQ accordion,
-   testimonial slider, contact/partnership form validation
-   ========================================================================== */
 (function () {
   "use strict";
 
@@ -64,7 +59,7 @@
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
     );
     revealEls.forEach((el, i) => {
       el.dataset.delay = (i % 4) * 80;
@@ -80,12 +75,15 @@
     const answer = item.querySelector(".faq-answer");
     question.addEventListener("click", () => {
       const isOpen = item.classList.contains("open");
-      item.closest(".faq").querySelectorAll(".faq-item.open").forEach((openItem) => {
-        if (openItem !== item) {
-          openItem.classList.remove("open");
-          openItem.querySelector(".faq-answer").style.maxHeight = null;
-        }
-      });
+      item
+        .closest(".faq")
+        .querySelectorAll(".faq-item.open")
+        .forEach((openItem) => {
+          if (openItem !== item) {
+            openItem.classList.remove("open");
+            openItem.querySelector(".faq-answer").style.maxHeight = null;
+          }
+        });
       if (isOpen) {
         item.classList.remove("open");
         answer.style.maxHeight = null;

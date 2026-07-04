@@ -58,6 +58,11 @@
   --radius-l: 24px;
   --ease: cubic-bezier(0.16, 0.84, 0.44, 1);
   --container: 1400px;
+  --panel-cta-bg: linear-gradient(
+    to bottom,
+    rgba(33, 72, 140, 0) 50%,
+    #21488c 100%
+  );
 }
 
 *,
@@ -631,7 +636,7 @@ textarea {
   left: 45%;
   width: 600px;
   height: 600px;
-  background: url('../img/glow.png') center/contain no-repeat;
+  background: url("../img/glow.png") center/contain no-repeat;
   transform: translate(-50%, -50%);
   z-index: -1;
   pointer-events: none;
@@ -916,7 +921,7 @@ textarea {
   right: -480px;
   width: 800px;
   height: 800px;
-  background: url('../img/bgglow.png') center/contain no-repeat;
+  background: url("../img/bgglow.png") center/contain no-repeat;
   z-index: -1;
   pointer-events: none;
 }
@@ -927,7 +932,7 @@ textarea {
   left: -480px;
   width: 800px;
   height: 800px;
-  background: url('../img/glow.png') center/contain no-repeat;
+  background: url("../img/glow.png") center/contain no-repeat;
   z-index: -1;
   pointer-events: none;
 }
@@ -969,7 +974,7 @@ textarea {
 .testimonial-nav .divider {
   flex: 1;
   height: 1px;
-  background: var(--line);
+  background: #3c4b8b;
 }
 
 .testimonial-viewport {
@@ -1277,21 +1282,14 @@ textarea {
 }
 
 .form-panel {
-  background: linear-gradient(160deg, #241c57, #171233 75%);
+  background: var(--panel-cta-bg);
   border-radius: var(--radius-l);
   padding: 44px;
   position: relative;
   overflow: hidden;
 }
 .form-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 90% 100%,
-    rgba(242, 112, 60, 0.28),
-    transparent 50%
-  );
+  display: none;
 }
 .form-panel > * {
   position: relative;
@@ -1472,21 +1470,14 @@ textarea {
 }
 
 .form-panel {
-  background: linear-gradient(160deg, #241c57, #171233 75%);
+  background: var(--panel-cta-bg);
   border-radius: var(--radius-l);
   padding: 44px;
   position: relative;
   overflow: hidden;
 }
 .form-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 90% 100%,
-    rgba(242, 112, 60, 0.28),
-    transparent 50%
-  );
+  display: none;
 }
 .form-panel > * {
   position: relative;
@@ -1586,11 +1577,7 @@ select:focus-visible {
   text-align: center;
   padding: 80px 40px;
   border-radius: 12px;
-  background: linear-gradient(
-    to bottom,
-    rgba(33, 72, 140, 0) 50%,
-    #21488c 100%
-  );
+  background: var(--panel-cta-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1616,8 +1603,30 @@ select:focus-visible {
   .problem,
   .approach,
   .packages,
-  .testimonials,
+  .testimonials {
+    padding: 40px 0 !important;
+  }
   .cta-banner {
-    padding: 60px 0 !important;
+    padding: 20px 0 40px !important;
+  }
+  .cta-inner {
+    padding: 40px 20px;
+  }
+  .hero {
+    min-height: auto;
+    padding-top: 150px;
+  }
+  .hero-grid {
+    flex-direction: column;
+  }
+  .hero-copy {
+    margin-bottom: 40px;
+  }
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
   }
 }
