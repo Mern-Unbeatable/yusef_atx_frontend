@@ -21,17 +21,33 @@
   const navToggle = document.getElementById("navToggle");
   const mainNav = document.getElementById("mainNav");
   if (navToggle && mainNav) {
+    const setNavOpen = (open) => {
+      mainNav.classList.toggle("open", open);
+      navToggle.classList.toggle("open", open);
+      document.body.classList.toggle("nav-open", open);
+      navToggle.setAttribute("aria-expanded", String(open));
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+
     navToggle.addEventListener("click", () => {
-      const isOpen = mainNav.classList.toggle("open");
-      navToggle.classList.toggle("open", isOpen);
-      navToggle.setAttribute("aria-expanded", String(isOpen));
+      setNavOpen(!mainNav.classList.contains("open"));
     });
     mainNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mainNav.classList.remove("open");
-        navToggle.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
+      link.addEventListener("click", () => setNavOpen(false));
+    });
+    document.addEventListener("click", (e) => {
+      if (
+        mainNav.classList.contains("open") &&
+        !mainNav.contains(e.target) &&
+        !navToggle.contains(e.target)
+      ) {
+        setNavOpen(false);
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mainNav.classList.contains("open")) {
+        setNavOpen(false);
+      }
     });
   }
 

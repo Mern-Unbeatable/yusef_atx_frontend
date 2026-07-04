@@ -26,6 +26,17 @@
           <img class="logo" src="img/logo.png" alt="logo" />
         </a>
 
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mainNav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
         <nav class="main-nav" id="mainNav">
           <a href="index.html" class="nav-link active">Home</a>
           <a href="packages.html" class="nav-link">Packages</a>
@@ -35,15 +46,6 @@
             >Book a session</a
           >
         </nav>
-
-        <button
-          class="nav-toggle"
-          id="navToggle"
-          aria-label="Open menu"
-          aria-expanded="false"
-        >
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </header>
     <!-- header end -->
@@ -220,7 +222,7 @@
       </section>
 
       <!-- testimonials start -->
-      <section class="testimonials" id="testimonials">
+      <section class="testimonials" id="testimonials" data-slider>
         <div class="container">
           <div class="testimonial-head reveal">
             <div>
@@ -242,7 +244,7 @@
             </div>
           </div>
 
-          <div class="reveal" data-slider>
+          <div class="testimonial-viewport reveal">
             <div class="testimonial-track">
               <blockquote class="testimonial-card">
                 <p>
@@ -267,6 +269,18 @@
                   understand why my body was compensating and how to stop it."
                 </p>
                 <footer>Priya N.</footer>
+              </blockquote>
+              <blockquote class="testimonial-card">
+                <p>
+                  "I thought my golf swing was permanently ruined. The adjustments here gave me my range of motion back in just a few weeks."
+                </p>
+                <footer>David L.</footer>
+              </blockquote>
+              <blockquote class="testimonial-card">
+                <p>
+                  "Truly life-changing. They don't just treat the symptoms, they find the root cause of the discomfort. Highly recommended!"
+                </p>
+                <footer>Sarah K.</footer>
               </blockquote>
             </div>
           </div>
