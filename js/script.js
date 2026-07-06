@@ -299,4 +299,100 @@
 
     form.addEventListener("input", clearMailtoFallback);
   });
+
+  /* ==========================================================================
+     Package Mobile Carousel Logic
+     ========================================================================== */
+  const packageGrid = document.querySelector(".package-grid");
+  const packageCards = document.querySelectorAll(".package-card");
+  const packageDots = document.querySelectorAll(".package-dots .dot");
+  
+  if (packageGrid && packageCards.length > 0) {
+    let currentPackage = 1; // Start with the middle card ("Maintain") active
+
+    function updatePackages(index) {
+      // Remove all state classes
+      packageCards.forEach(card => {
+        card.classList.remove("active", "prev", "next");
+      });
+      if (packageDots.length > 0) {
+        packageDots.forEach(dot => dot.classList.remove("active"));
+      }
+
+      // Add appropriate classes based on the current index
+      packageCards[index].classList.add("active");
+      
+      const prevIndex = (index - 1 + packageCards.length) % packageCards.length;
+      const nextIndex = (index + 1) % packageCards.length;
+      
+      packageCards[prevIndex].classList.add("prev");
+      packageCards[nextIndex].classList.add("next");
+
+      if (packageDots.length > 0 && packageDots[index]) {
+        packageDots[index].classList.add("active");
+      }
+    }
+
+    // Initialize layout for mobile if window is small, otherwise reset
+    function checkPackageLayout() {
+      if (window.innerWidth <= 860) {
+        updatePackages(currentPackage);
+      } else {
+        // Desktop: remove all mobile classes
+        packageCards.forEach(card => card.classList.remove("active", "prev", "next"));
+      }
+    }
+
+    checkPackageLayout();
+    window.addEventListener("resize", checkPackageLayout, { passive: true });
+
+    // Swipe Support
+    let pTouchStartX = 0;
+    let pTouchEndX = 0;
+
+    packageGrid.addEventListener('touchstart', e => {
+      if (window.innerWidth > 860) return;
+      pTouchStartX = e.touches[0].clientX;
+      pTouchEndX = pTouchStartX;
+    }, { passive: true });
+
+    packageGrid.addEventListener('touchmove', e => {
+      if (window.innerWidth > 860) return;
+      pTouchEndX = e.touches[0].clientX;
+    }, { passive: true });
+
+    packageGrid.addEventListener('touchend', e => {
+      if (window.innerWidth > 860) return;
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        pTouchEndX = e.changedTouches[0].clientX;
+      }
+      handlePackageSwipe();
+    }, { passive: true });
+
+    function handlePackageSwipe() {
+      const swipeThreshold = 50;
+      if (pTouchStartX - pTouchEndX > swipeThreshold) {
+        // Swiped left, go next
+        currentPackage = (currentPackage + 1) % packageCards.length;
+        updatePackages(currentPackage);
+      }
+      if (pTouchEndX - pTouchStartX > swipeThreshold) {
+        // Swiped right, go prev
+        currentPackage = (currentPackage - 1 + packageCards.length) % packageCards.length;
+        updatePackages(currentPackage);
+      }
+    }
+
+    // Dot click listeners
+    if (packageDots.length > 0) {
+      packageDots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          if (window.innerWidth <= 860) {
+            currentPackage = index;
+            updatePackages(currentPackage);
+          }
+        });
+      });
+    }
+  }
 })();

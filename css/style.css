@@ -408,6 +408,11 @@ textarea {
     backdrop-filter: blur(4px);
     z-index: 1000;
   }
+  body.nav-open .site-header,
+  body.nav-open .site-header.scrolled {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
 
   .site-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -440,7 +445,8 @@ textarea {
     justify-content: flex-start;
     padding: 30px 40px;
     gap: 0;
-    transform: translateX(100%);
+    transform: translateX(100%) translateZ(0);
+    -webkit-transform: translateX(100%) translateZ(0);
     transition: transform 0.4s var(--ease);
     box-shadow: none;
     z-index: 1005;
@@ -449,7 +455,8 @@ textarea {
     pointer-events: none;
   }
   .main-nav.open {
-    transform: translateX(0);
+    transform: translateX(0) translateZ(0);
+    -webkit-transform: translateX(0) translateZ(0);
     pointer-events: auto;
   }
 
@@ -1326,6 +1333,21 @@ textarea {
   z-index: -1;
   pointer-events: none;
 }
+.testimonials .eyebrow::after {
+  display: none;
+}
+.testimonial-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+.testimonial-head .section-title {
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .testimonials::before {
     width: 400px;
@@ -1353,20 +1375,6 @@ textarea {
   .testimonial-viewport {
     padding: 0 5%;
   }
-}
-.testimonials .eyebrow::after {
-  display: none;
-}
-.testimonial-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-bottom: 44px;
-}
-.testimonial-head .section-title {
-  margin: 0;
 }
 .testimonial-nav {
   display: flex;
