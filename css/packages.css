@@ -75,7 +75,7 @@
 
 .conditions .section-lead {
   color: var(--ink-muted);
-  font-size: 1.05rem;
+  font-size: var(--desc-size);
   margin-bottom: 60px;
   max-width: 600px;
   margin-left: auto;
@@ -116,7 +116,7 @@
 
 .condition-card p {
   color: var(--ink-muted);
-  font-size: 0.95rem;
+  font-size: var(--desc-size);
   line-height: 1.6;
   margin: 0;
   max-width: 400px;
@@ -233,7 +233,7 @@
 .packages-faq-section .faq-answer-inner {
   padding-bottom: 30px;
   color: #a4a4b9;
-  font-size: 0.95rem;
+  font-size: var(--desc-size);
   line-height: 1.7;
   max-width: 90%;
   text-align: left;
