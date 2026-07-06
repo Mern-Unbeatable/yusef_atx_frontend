@@ -326,7 +326,8 @@ textarea {
   align-items: center;
   margin-left: auto;
 }
-.hide-on-desktop {
+.hide-on-desktop,
+.mobile-btn-book {
   display: none !important;
 }
 .nav-links-primary {
@@ -983,9 +984,13 @@ textarea {
     padding: 32px 24px;
     background: #e2edf2;
     border-radius: 16px;
-    transition: transform 0.4s var(--ease), opacity 0.4s var(--ease), background 0.4s var(--ease), z-index 0s;
+    transition:
+      transform 0.4s var(--ease),
+      opacity 0.4s var(--ease),
+      background 0.4s var(--ease),
+      z-index 0s;
   }
-  
+
   /* Carousel States */
   .package-card.active {
     z-index: 3;
@@ -1409,7 +1414,9 @@ textarea {
   border: 1.5px solid var(--line);
   border-radius: var(--radius-m);
   padding: 30px 32px;
-  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  transition:
+    opacity 0.5s var(--ease),
+    transform 0.5s var(--ease);
 }
 @media (min-width: 760px) {
   .testimonial-card {
