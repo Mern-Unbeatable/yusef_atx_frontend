@@ -41,7 +41,7 @@
   left: -300px;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(242, 112, 60, 0.45) 0%, transparent 60%);
+  background: url("../img/bgglow.png") center/contain no-repeat;
   transform: translateY(-50%);
 }
 
@@ -50,8 +50,8 @@
   right: -300px;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(91, 115, 216, 0.45) 0%, transparent 60%);
-  transform: translateY(-50%);
+  background: url("../img/glow.png") center/contain no-repeat;
+  transform: translateY(-50%) scaleX(-1);
 }
 
 .conditions .eyebrow {
@@ -65,7 +65,7 @@
 }
 
 .conditions .section-title {
-  color: #ffffff;
+  color: var(--card);
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.2rem);
   text-transform: uppercase;
@@ -146,7 +146,7 @@
 }
 
 .packages-faq-title {
-  color: #ffffff;
+  color: var(--card);
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.5vw, 2.5rem);
   text-transform: uppercase;

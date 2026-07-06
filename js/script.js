@@ -15,6 +15,7 @@
   /* ---------- Mobile nav toggle ---------- */
   const navToggle = document.getElementById("navToggle");
   const mainNav = document.getElementById("mainNav");
+  const mobileNavClose = document.getElementById("mobileNavClose");
   if (navToggle && mainNav) {
     const setNavOpen = (open) => {
       mainNav.classList.toggle("open", open);
@@ -27,6 +28,9 @@
     navToggle.addEventListener("click", () => {
       setNavOpen(!mainNav.classList.contains("open"));
     });
+    if (mobileNavClose) {
+      mobileNavClose.addEventListener("click", () => setNavOpen(false));
+    }
     mainNav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => setNavOpen(false));
     });
@@ -104,10 +108,19 @@
     let index = 0;
     const perView = () => (window.innerWidth >= 760 ? 2 : 1);
 
+    const dots = Array.from(slider.querySelectorAll(".testimonial-dots .dot"));
+
     function update() {
       const cardWidth = cards[0].getBoundingClientRect().width;
       const gap = 22;
       track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
+      
+      if (dots.length > 0) {
+        dots.forEach((dot, i) => {
+          if (i === index) dot.classList.add("active");
+          else dot.classList.remove("active");
+        });
+      }
     }
     function next() {
       const max = Math.max(cards.length - perView(), 0);
@@ -121,6 +134,35 @@
     }
     prevBtn && prevBtn.addEventListener("click", prev);
     nextBtn && nextBtn.addEventListener("click", next);
+    
+    if (dots.length > 0) {
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          index = i;
+          update();
+        });
+      });
+    }
+
+    // Swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    slider.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchEndX = touchStartX;
+    }, { passive: true });
+    slider.addEventListener('touchmove', e => {
+      touchEndX = e.touches[0].clientX;
+    }, { passive: true });
+    slider.addEventListener('touchend', e => {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        touchEndX = e.changedTouches[0].clientX;
+      }
+      const swipeThreshold = 50;
+      if (touchStartX - touchEndX > swipeThreshold) next();
+      if (touchEndX - touchStartX > swipeThreshold) prev();
+    }, { passive: true });
+
     window.addEventListener("resize", update);
     update();
   });

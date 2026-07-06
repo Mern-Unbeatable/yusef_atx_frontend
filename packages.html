@@ -22,7 +22,8 @@
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
         <a href="index.html" class="brand">
-          <img class="logo" src="img/logo.png" alt="logo" />
+          <img class="logo hide-on-mobile" src="img/logo.png" alt="logo" />
+          <img class="logo hide-on-desktop" src="img/sidebarlogo.png" alt="logo" />
         </a>
 
         <button
@@ -37,14 +38,35 @@
         </button>
 
         <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="packages.html" class="nav-link active">Packages</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="partnerships.html" class="nav-link">Partnerships</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-          <a href="mailto:info@athleticalignmentlab.com" class="btn btn-primary btn-sm"
-            >Book a session</a
-          >
+          <div class="mobile-nav-top hide-on-desktop">
+            <img src="img/sidebarlogo.png" alt="Athletic Alignment Lab" class="mobile-nav-logo" />
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="nav-links-primary">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="packages.html" class="nav-link active">Packages</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link desktop-only">Contact</a>
+            <a href="contact.html" class="nav-link mobile-btn-book">Book a session</a>
+          </div>
+
+          <div class="nav-links-secondary hide-on-desktop">
+            <a href="contact.html" class="nav-link-sec">Contact</a>
+            <a href="partnerships.html" class="nav-link-sec">Partnerships</a>
+            <a href="#" class="nav-link-sec">Instagram</a>
+            <a href="#" class="nav-link-sec">Facebook</a>
+          </div>
+
+          <div class="mobile-nav-footer hide-on-desktop">
+            <a href="#">Privacy</a>
+            <a href="#">Terms & Conditions</a>
+          </div>
         </nav>
       </div>
     </header>

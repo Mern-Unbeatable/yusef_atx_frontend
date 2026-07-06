@@ -22,7 +22,8 @@
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
         <a href="index.html" class="brand">
-          <img class="logo" src="img/logo.png" alt="logo" />
+          <img class="logo hide-on-mobile" src="img/logo.png" alt="logo" />
+          <img class="logo hide-on-desktop" src="img/sidebarlogo.png" alt="logo" />
         </a>
 
         <button
@@ -37,14 +38,35 @@
         </button>
 
         <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="packages.html" class="nav-link">Packages</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="partnerships.html" class="nav-link active">Partnerships</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-          <a href="mailto:info@athleticalignmentlab.com" class="btn btn-primary btn-sm"
-            >Book a session</a
-          >
+          <div class="mobile-nav-top hide-on-desktop">
+            <img src="img/sidebarlogo.png" alt="Athletic Alignment Lab" class="mobile-nav-logo" />
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="nav-links-primary">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="packages.html" class="nav-link">Packages</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link desktop-only">Contact</a>
+            <a href="contact.html" class="nav-link mobile-btn-book">Book a session</a>
+          </div>
+
+          <div class="nav-links-secondary hide-on-desktop">
+            <a href="contact.html" class="nav-link-sec">Contact</a>
+            <a href="partnerships.html" class="nav-link-sec active">Partnerships</a>
+            <a href="#" class="nav-link-sec">Instagram</a>
+            <a href="#" class="nav-link-sec">Facebook</a>
+          </div>
+
+          <div class="mobile-nav-footer hide-on-desktop">
+            <a href="#">Privacy</a>
+            <a href="#">Terms & Conditions</a>
+          </div>
         </nav>
       </div>
     </header>
@@ -98,7 +120,9 @@
       <section class="workwith">
         <div class="container">
           <div class="workwith-lead">
-            <span class="eyebrow reveal eyebrow-centered">How we can work together</span>
+            <span class="eyebrow reveal eyebrow-centered"
+              >How we can work together</span
+            >
             <h2 class="section-title reveal">
               BUILT FOR HOW BRANDS<br />SHOW UP TODAY.
             </h2>
@@ -182,36 +206,36 @@
             <div class="form-row">
               <div class="form-field">
                 <label for="p-name">Primary Contact / Full Name</label>
-                <input type="text" id="p-name" name="name" required />
+                <input type="text" id="p-name" name="name" placeholder="Primary Contact / Full Name" required />
                 <span class="field-error"></span>
               </div>
               <div class="form-field">
                 <label for="p-email">Email</label>
-                <input type="email" id="p-email" name="email" required />
+                <input type="email" id="p-email" name="email" placeholder="Email" required />
                 <span class="field-error"></span>
               </div>
             </div>
             <div class="form-row">
               <div class="form-field">
                 <label for="p-phone">Phone</label>
-                <input type="tel" id="p-phone" name="phone" />
+                <input type="tel" id="p-phone" name="phone" placeholder="Phone" />
                 <span class="field-error"></span>
               </div>
               <div class="form-field">
                 <label for="p-company">Company / Brand</label>
-                <input type="text" id="p-company" name="company" required />
+                <input type="text" id="p-company" name="company" placeholder="Company / Brand" required />
                 <span class="field-error"></span>
               </div>
             </div>
             <div class="form-row">
               <div class="form-field">
                 <label for="p-location">Event Location</label>
-                <input type="text" id="p-location" name="location" />
+                <input type="text" id="p-location" name="location" placeholder="Event Location" />
                 <span class="field-error"></span>
               </div>
               <div class="form-field">
                 <label for="p-timeline">Timeline</label>
-                <input type="text" id="p-timeline" name="timeline" />
+                <input type="text" id="p-timeline" name="timeline" placeholder="Timeline" />
                 <span class="field-error"></span>
               </div>
             </div>
@@ -219,14 +243,14 @@
               <label for="p-type"
                 >Type of partnership you're interested in</label
               >
-              <input type="text" id="p-type" name="type" />
+              <input type="text" id="p-type" name="type" placeholder="Type of partnership you're interested in" />
               <span class="field-error"></span>
             </div>
             <div class="form-field">
               <label for="p-message"
                 >Tell us about your event or activation</label
               >
-              <textarea id="p-message" name="message" rows="4"></textarea>
+              <textarea id="p-message" name="message" rows="4" placeholder="Tell us about your event or activation"></textarea>
               <span class="field-error"></span>
             </div>
             <button type="submit" class="btn btn-primary btn-block">

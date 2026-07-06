@@ -38,14 +38,54 @@
         </button>
 
         <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="packages.html" class="nav-link">Packages</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="partnerships.html" class="nav-link">Partnerships</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-          <a href="mailto:info@athleticalignmentlab.com" class="btn btn-primary btn-sm"
-            >Book a session</a
-          >
+          <div class="mobile-nav-top hide-on-desktop">
+            <img
+              src="img/sidebarlogo.png"
+              alt="Athletic Alignment Lab"
+              class="mobile-nav-logo"
+            />
+            <button
+              class="mobile-nav-close"
+              id="mobileNavClose"
+              aria-label="Close menu"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div class="nav-links-primary">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="packages.html" class="nav-link">Packages</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link desktop-only">Contact</a>
+            <a href="contact.html" class="nav-link mobile-btn-book"
+              >Book a session</a
+            >
+          </div>
+
+          <div class="nav-links-secondary hide-on-desktop">
+            <a href="contact.html" class="nav-link-sec">Contact</a>
+            <a href="partnerships.html" class="nav-link-sec">Partnerships</a>
+            <a href="#" class="nav-link-sec">Instagram</a>
+            <a href="#" class="nav-link-sec">Facebook</a>
+          </div>
+
+          <div class="mobile-nav-footer hide-on-desktop">
+            <a href="#">Privacy</a>
+            <a href="#">Terms & Conditions</a>
+          </div>
         </nav>
       </div>
     </header>
@@ -85,15 +125,22 @@
           <div class="problem-grid">
             <div class="problem-media reveal">
               <img
+                id="problemImage"
                 class="media-image"
                 src="img/AAL-stretch-female-03.png"
                 alt="Athlete in treatment session"
                 loading="eager"
               />
+              <div class="problem-dots hide-on-desktop" id="problemDots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+              </div>
             </div>
             <div class="problem-copy reveal">
-              <div class="media-controls" aria-hidden="true">
+              <div class="media-controls hide-on-mobile" aria-hidden="true">
                 <button
+                  id="problemPrev"
                   class="icon-btn square-btn"
                   type="button"
                   aria-label="Previous"
@@ -101,6 +148,7 @@
                   <i class="fa-solid fa-arrow-left-long"></i>
                 </button>
                 <button
+                  id="problemNext"
                   class="icon-btn square-btn"
                   type="button"
                   aria-label="Next"
@@ -109,9 +157,11 @@
                 </button>
                 <span class="divider"></span>
               </div>
-              <div class="problem-text-content">
-                <h3 class="problem-subtitle">Something always hurts</h3>
-                <p>
+              <div class="problem-text-content" id="problemTextContent">
+                <h3 class="problem-subtitle" id="problemSubtitle">
+                  Something always hurts
+                </h3>
+                <p id="problemDesc">
                   You're constantly adjusting—avoiding certain movements,
                   favoring one side, or pushing through discomfort. Over time,
                   it starts creating new issues elsewhere.
@@ -168,9 +218,10 @@
                 A high-impact session to unlock immediate tension and get you
                 back on your feet.
               </p>
-              <p class="package-meta">
-                90 minutes per session<br />No commitment
-              </p>
+              <ul class="package-meta">
+                <li>90 minutes per session</li>
+                <li>No commitment</li>
+              </ul>
               <div class="package-price-row">
                 <div class="package-price">
                   <strong>$199</strong><span>Per Month</span>
@@ -187,9 +238,11 @@
                 A consistent "tune-up" to manage daily wear and tear so you can
                 stay active for the long haul.
               </p>
-              <p class="package-meta">
-                90 minutes per session<br />2X per month<br />3 month commitment
-              </p>
+              <ul class="package-meta">
+                <li>90 minutes per session</li>
+                <li>2X per month</li>
+                <li>3 month commitment</li>
+              </ul>
               <div class="package-price-row">
                 <div class="package-price">
                   <strong>$349</strong><span>Per Month</span>
@@ -206,9 +259,11 @@
                 A structured series of sessions designed to unravel chronic
                 patterns and fully restore your mobility.
               </p>
-              <p class="package-meta">
-                90 minutes per session<br />4X per month<br />3 month commitment
-              </p>
+              <ul class="package-meta">
+                <li>90 minutes per session</li>
+                <li>4X per month</li>
+                <li>3 month commitment</li>
+              </ul>
               <div class="package-price-row">
                 <div class="package-price">
                   <strong>$699</strong><span>Per Month</span>
@@ -218,6 +273,12 @@
                 >
               </div>
             </article>
+          </div>
+
+          <div class="package-dots hide-on-desktop">
+            <span class="dot"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
           </div>
         </div>
       </section>
@@ -291,6 +352,13 @@
                 <footer>Sarah K.</footer>
               </blockquote>
             </div>
+          </div>
+
+          <div class="testimonial-dots hide-on-desktop">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
           </div>
         </div>
       </section>

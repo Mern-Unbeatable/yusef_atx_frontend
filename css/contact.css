@@ -1,5 +1,9 @@
 /* Contact page specific styles */
 
-.contact-hero-title{
-  font-size:clamp(1.8rem,4vw,2.7rem);
+.contact-hero-title {
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.contact-info .eyebrow::after {
+  display: none;
 }
