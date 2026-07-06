@@ -326,8 +326,7 @@ textarea {
   align-items: center;
   margin-left: auto;
 }
-.hide-on-desktop,
-.mobile-btn-book {
+.hide-on-desktop {
   display: none !important;
 }
 .nav-links-primary {
