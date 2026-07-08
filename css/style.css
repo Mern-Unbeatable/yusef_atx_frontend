@@ -648,13 +648,13 @@ textarea {
     position: relative;
   }
   .hero-copy {
-    width: 90%;
+    width: 75%;
     margin-bottom: 0;
     z-index: 2;
     position: relative;
   }
   .hero-title {
-    font-size: clamp(1.6rem, 5.5vw, 2.4rem);
+    font-size: clamp(1.4rem, 4.8vw, 2.2rem);
     line-height: 1.1;
     margin-bottom: 18px;
   }
@@ -667,24 +667,31 @@ textarea {
   .hero .btn {
     font-size: 0.75rem;
     padding: 12px 24px;
-    background: transparent;
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-  }
-  .hero .btn:hover {
-    background: var(--accent);
-    color: var(--card-text);
   }
   .hero-visual {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -45px;
+    right: -20px;
     bottom: 0;
-    width: 50%;
-    height: 100%;
+    width: 45%;
+    height: calc(100% + 45px);
     z-index: 1;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
     mask-image: linear-gradient(to right, transparent 0%, black 30%);
+  }
+  .hero-visual img {
+    object-position: left top;
+    transform: scaleX(-1);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-sub {
+    max-width: 235px;
+  }
+  .approach-copy p {
+    font-size: 15px;
+    max-width: 240px;
   }
 }
 
@@ -804,13 +811,6 @@ textarea {
   }
   .problem-btn {
     align-self: center;
-    background: transparent;
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-  }
-  .problem-btn:hover {
-    background: var(--accent);
-    color: var(--card-text);
   }
 }
 
@@ -914,7 +914,7 @@ textarea {
   }
   .approach-visual img {
     object-position: left center;
-    transform: scale(1.15);
+    transform: scale(0.85);
   }
   .approach-copy {
     width: 58%;
@@ -1009,10 +1009,12 @@ textarea {
     background: #5c5f73;
     opacity: 1;
   }
-  /* Hide contents of inactive cards */
+  /* Disable interaction and hide contents of inactive cards */
+  .package-card:not(.active) {
+    pointer-events: none;
+  }
   .package-card:not(.active) * {
     opacity: 0;
-    pointer-events: none;
   }
 
   .package-card h3 {
@@ -1519,6 +1521,9 @@ textarea {
   gap: 90px;
   flex-wrap: wrap;
 }
+.footer-contact {
+  display: none;
+}
 .footer-col h4 {
   font-size: 0.85rem;
   letter-spacing: 0.05em;
@@ -1532,6 +1537,7 @@ textarea {
   flex-direction: column;
   gap: 16px;
 }
+.footer-col li,
 .footer-col a {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.82rem;
@@ -1539,6 +1545,30 @@ textarea {
 }
 .footer-col a:hover {
   color: var(--ink);
+}
+.footer-social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+.footer-social-icons a {
+  width: 34px;
+  height: 34px;
+  background: #6a89cc;
+  color: #120426;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  transition:
+    transform 0.3s var(--ease),
+    background 0.3s var(--ease);
+}
+.footer-social-icons a:hover {
+  transform: translateY(-2px);
+  background: var(--blue);
+  color: #120426;
 }
 .footer-bottom {
   display: flex;
@@ -1554,6 +1584,46 @@ textarea {
 }
 .footer-bottom a:hover {
   color: var(--ink);
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 60px 0 40px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 20px;
+  }
+  .footer-brand {
+    align-self: flex-start;
+  }
+  .footer-brand img {
+    max-width: 100%;
+    width: 150px;
+  }
+  .footer-cols {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .footer-company,
+  .footer-follow {
+    display: none;
+  }
+  .footer-contact {
+    display: block;
+  }
+  .footer-col h4 {
+    margin: 0 0 8px;
+  }
+  .footer-col ul {
+    gap: 4px;
+  }
+  .footer-bottom {
+    justify-content: center;
+    margin-top: 30px;
+  }
 }
 
 /* ==========================================================================
@@ -1605,6 +1675,13 @@ textarea {
   .story-grid,
   .story-grid.reverse {
     grid-template-columns: 1fr;
+    gap: 0px;
+  }
+  .story-section {
+    padding: 10px 0;
+  }
+  .story-copy p:last-child {
+    margin-bottom: 0;
   }
 }
 .story-grid.reverse .story-media {
@@ -2065,7 +2142,7 @@ select:focus-visible {
     padding: 40px 0 !important;
   }
   .cta-banner {
-    padding: 20px 0 40px !important;
+    padding: 0 0 40px !important;
   }
   .cta-inner {
     padding: 40px 20px;

@@ -130,6 +130,16 @@
   .story-grid,
   .story-grid.reverse {
     grid-template-columns: 1fr;
+    gap: 0px;
+  }
+  .story-section {
+    padding: 10px 0;
+  }
+  .story-grid .story-media-thermal,
+  .story-grid.reverse .story-media-thermal {
+    aspect-ratio: auto;
+    margin-top: -20px;
+    margin-bottom: -30px;
   }
 }
 
