@@ -64,9 +64,9 @@
 .about-intro p {
   max-width: 100%;
   margin: 0;
-  font-size: var(--desc-size);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   line-height: 1.5;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   text-align: left;
 }
 
@@ -91,12 +91,12 @@
 }
 .story-section::before {
   left: 0;
-  background-image: url('../img/glow.png');
+  background-image: url('../img/glow.webp');
   background-position: left top;
 }
 .story-section::after {
   left: 0;
-  background-image: url('../img/bgglow.png');
+  background-image: url('../img/bgglow.webp');
   background-position: left bottom;
 }
 
@@ -130,7 +130,7 @@
   .story-grid,
   .story-grid.reverse {
     grid-template-columns: 1fr;
-    gap: 0px;
+    gap: 32px;
   }
   .story-section {
     padding: 10px 0;
@@ -198,10 +198,28 @@
 
 @media (max-width: 900px) {
   .about-hero {
-    padding-top: 150px;
+    padding-top: 100px;
+    text-align: center;
+  }
+  .about-hero .hero-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+  .about-hero .eyebrow {
+    justify-content: center;
+  }
+  .about-intro p {
+    text-align: center;
+    font-size: var(--desc-size);
+  }
+  .about-intro-mobile {
+    margin: 40px auto 0;
+    font-size: var(--desc-size);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    text-align: center;
   }
   .about-hero-media {
     width: min(100%, 420px);
-    justify-self: start;
+    justify-self: center;
   }
 }

@@ -7,3 +7,41 @@
 .contact-info .eyebrow::after {
   display: none;
 }
+
+@media (max-width: 900px) {
+  .contact-section {
+    padding-top: 100px;
+    text-align: center;
+  }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .contact-hero-title,
+  .contact-hero-title span.hide-on-desktop {
+    display: block !important;
+    text-align: center !important;
+  }
+  .contact-info .eyebrow {
+    justify-content: center;
+  }
+  .contact-info p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-info p.contact-detail {
+    margin-bottom: 4px;
+  }
+  .contact-info p.contact-detail:last-child {
+    margin-bottom: 0;
+  }
+  .contact-grid {
+    gap: 24px;
+  }
+  .form-panel {
+    padding: 32px 24px;
+  }
+}

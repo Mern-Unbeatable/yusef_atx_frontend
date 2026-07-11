@@ -17,17 +17,17 @@
   ) {
     const problems = [
       {
-        image: "img/AAL-stretch-female-03.png",
+        image: "img/AAL-stretch-female-03.webp",
         subtitle: "Something always hurts",
         desc: "You're constantly adjusting—avoiding certain movements, favoring one side, or pushing through discomfort. Over time, it starts creating new issues elsewhere.",
       },
       {
-        image: "img/AAL-stretch-male-01.png",
+        image: "img/AAL-stretch-male-01.webp",
         subtitle: "Mobility feels limited",
         desc: "You're stretching, foam rolling, and doing mobility work, but the stiffness always returns. Your body feels locked up, limiting your range of motion and overall performance.",
       },
       {
-        image: "img/AAL-stretch-female-01.png",
+        image: "img/AAL-stretch-female-01.webp",
         subtitle: "Recovery is taking longer",
         desc: "Minor tweaks and soreness linger much longer than they used to. Your body struggles to bounce back from workouts, leaving you feeling fatigued and prone to injury.",
       },

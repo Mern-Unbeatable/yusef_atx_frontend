@@ -41,7 +41,7 @@
   left: -300px;
   width: 800px;
   height: 800px;
-  background: url("../img/bgglow.png") center/contain no-repeat;
+  background: url("../img/bgglow.webp") center/contain no-repeat;
   transform: translateY(-50%);
 }
 
@@ -50,7 +50,7 @@
   right: -300px;
   width: 800px;
   height: 800px;
-  background: url("../img/glow.png") center/contain no-repeat;
+  background: url("../img/glow.webp") center/contain no-repeat;
   transform: translateY(-50%) scaleX(-1);
 }
 
