@@ -33,6 +33,12 @@
       },
     ];
 
+    // Preload images to prevent lag when clicking arrows
+    problems.forEach(problem => {
+      const img = new Image();
+      img.src = problem.image;
+    });
+
     let currentProblem = 0;
     const dots = document.querySelectorAll(".problem-dots .dot");
 
@@ -41,11 +47,16 @@
       problemTextContent.style.opacity = 0;
 
       setTimeout(() => {
-        problemImage.src = problems[index].image;
         problemSubtitle.textContent = problems[index].subtitle;
         problemDesc.textContent = problems[index].desc;
+        
+        // Wait for the image to fully load before showing it
+        problemImage.onload = () => {
+          problemImage.style.opacity = 1;
+        };
+        // Update the src to trigger the load (or instant if cached)
+        problemImage.src = problems[index].image;
 
-        problemImage.style.opacity = 1;
         problemTextContent.style.opacity = 1;
         
         // Update dots if they exist
