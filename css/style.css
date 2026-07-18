@@ -723,7 +723,7 @@ textarea {
   aspect-ratio: 1/1.05;
   object-fit: cover;
   object-position: center;
-  border-radius: 0;
+  border-radius: var(--radius-m);
   display: block;
   user-select: none;
   -webkit-user-drag: none;
