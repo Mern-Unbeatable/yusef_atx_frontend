@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  /* ---------- Sticky header ---------- */
+  /* sticky header */
   const header = document.getElementById("siteHeader");
   if (header) {
     const onScroll = () => {
@@ -12,7 +12,7 @@
     onScroll();
   }
 
-  /* ---------- Mobile nav toggle ---------- */
+  /* mobile nav toggle */
   const navToggle = document.getElementById("navToggle");
   const mainNav = document.getElementById("mainNav");
   const mobileNavClose = document.getElementById("mobileNavClose");
@@ -50,7 +50,7 @@
     });
   }
 
-  /* ---------- Scroll reveal ---------- */
+  /* scroll reveal */
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {
     const io = new IntersectionObserver(
@@ -73,7 +73,7 @@
     revealEls.forEach((el) => el.classList.add("visible"));
   }
 
-  /* ---------- FAQ accordion ---------- */
+  /* FAQ accordion */
   document.querySelectorAll(".faq-item").forEach((item) => {
     const question = item.querySelector(".faq-question");
     const answer = item.querySelector(".faq-answer");
@@ -98,7 +98,7 @@
     });
   });
 
-  /* ---------- Testimonial / media slider (arrow controlled) ---------- */
+  /* testimonial / media slider (arrow controlled) */
   document.querySelectorAll("[data-slider]").forEach((slider) => {
     const track = slider.querySelector(".testimonial-track");
     if (!track) return;
@@ -114,7 +114,7 @@
       const cardWidth = cards[0].getBoundingClientRect().width;
       const gap = 22;
       track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
-      
+
       if (dots.length > 0) {
         dots.forEach((dot, i) => {
           if (i === index) dot.classList.add("active");
@@ -134,7 +134,7 @@
     }
     prevBtn && prevBtn.addEventListener("click", prev);
     nextBtn && nextBtn.addEventListener("click", next);
-    
+
     if (dots.length > 0) {
       dots.forEach((dot, i) => {
         dot.addEventListener("click", () => {
@@ -144,30 +144,42 @@
       });
     }
 
-    // Swipe support
+    // swipe support
     let touchStartX = 0;
     let touchEndX = 0;
-    slider.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-      touchEndX = touchStartX;
-    }, { passive: true });
-    slider.addEventListener('touchmove', e => {
-      touchEndX = e.touches[0].clientX;
-    }, { passive: true });
-    slider.addEventListener('touchend', e => {
-      if (e.changedTouches && e.changedTouches.length > 0) {
-        touchEndX = e.changedTouches[0].clientX;
-      }
-      const swipeThreshold = 50;
-      if (touchStartX - touchEndX > swipeThreshold) next();
-      if (touchEndX - touchStartX > swipeThreshold) prev();
-    }, { passive: true });
+    slider.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchEndX = touchStartX;
+      },
+      { passive: true },
+    );
+    slider.addEventListener(
+      "touchmove",
+      (e) => {
+        touchEndX = e.touches[0].clientX;
+      },
+      { passive: true },
+    );
+    slider.addEventListener(
+      "touchend",
+      (e) => {
+        if (e.changedTouches && e.changedTouches.length > 0) {
+          touchEndX = e.changedTouches[0].clientX;
+        }
+        const swipeThreshold = 50;
+        if (touchStartX - touchEndX > swipeThreshold) next();
+        if (touchEndX - touchStartX > swipeThreshold) prev();
+      },
+      { passive: true },
+    );
 
     window.addEventListener("resize", update);
     update();
   });
 
-  /* ---------- Form validation + mailto submit ---------- */
+  /* form validation + mailto submit */
   const MAILTO_EMAIL = "info@athleticalignmentlab.com";
 
   function collectFormData(form) {
@@ -300,31 +312,29 @@
     form.addEventListener("input", clearMailtoFallback);
   });
 
-  /* ==========================================================================
-     Package Mobile Carousel Logic
-     ========================================================================== */
+  /* package mobile carousel logic */
   const packageGrid = document.querySelector(".package-grid");
   const packageCards = document.querySelectorAll(".package-card");
   const packageDots = document.querySelectorAll(".package-dots .dot");
-  
+
   if (packageGrid && packageCards.length > 0) {
-    let currentPackage = 1; // Start with the middle card ("Maintain") active
+    let currentPackage = 1;
 
     function updatePackages(index) {
-      // Remove all state classes
-      packageCards.forEach(card => {
+      // remove all state classes
+      packageCards.forEach((card) => {
         card.classList.remove("active", "prev", "next");
       });
       if (packageDots.length > 0) {
-        packageDots.forEach(dot => dot.classList.remove("active"));
+        packageDots.forEach((dot) => dot.classList.remove("active"));
       }
 
-      // Add appropriate classes based on the current index
+      // add appropriate classes based on the current index
       packageCards[index].classList.add("active");
-      
+
       const prevIndex = (index - 1 + packageCards.length) % packageCards.length;
       const nextIndex = (index + 1) % packageCards.length;
-      
+
       packageCards[prevIndex].classList.add("prev");
       packageCards[nextIndex].classList.add("next");
 
@@ -333,57 +343,69 @@
       }
     }
 
-    // Initialize layout for mobile if window is small, otherwise reset
+    // initialize layout for mobile if window is small, otherwise reset
     function checkPackageLayout() {
       if (window.innerWidth <= 860) {
         updatePackages(currentPackage);
       } else {
-        // Desktop: remove all mobile classes
-        packageCards.forEach(card => card.classList.remove("active", "prev", "next"));
+        packageCards.forEach((card) =>
+          card.classList.remove("active", "prev", "next"),
+        );
       }
     }
 
     checkPackageLayout();
     window.addEventListener("resize", checkPackageLayout, { passive: true });
 
-    // Swipe Support
+    /* swipe support */
     let pTouchStartX = 0;
     let pTouchEndX = 0;
 
-    packageGrid.addEventListener('touchstart', e => {
-      if (window.innerWidth > 860) return;
-      pTouchStartX = e.touches[0].clientX;
-      pTouchEndX = pTouchStartX;
-    }, { passive: true });
+    packageGrid.addEventListener(
+      "touchstart",
+      (e) => {
+        if (window.innerWidth > 860) return;
+        pTouchStartX = e.touches[0].clientX;
+        pTouchEndX = pTouchStartX;
+      },
+      { passive: true },
+    );
 
-    packageGrid.addEventListener('touchmove', e => {
-      if (window.innerWidth > 860) return;
-      pTouchEndX = e.touches[0].clientX;
-    }, { passive: true });
+    packageGrid.addEventListener(
+      "touchmove",
+      (e) => {
+        if (window.innerWidth > 860) return;
+        pTouchEndX = e.touches[0].clientX;
+      },
+      { passive: true },
+    );
 
-    packageGrid.addEventListener('touchend', e => {
-      if (window.innerWidth > 860) return;
-      if (e.changedTouches && e.changedTouches.length > 0) {
-        pTouchEndX = e.changedTouches[0].clientX;
-      }
-      handlePackageSwipe();
-    }, { passive: true });
+    packageGrid.addEventListener(
+      "touchend",
+      (e) => {
+        if (window.innerWidth > 860) return;
+        if (e.changedTouches && e.changedTouches.length > 0) {
+          pTouchEndX = e.changedTouches[0].clientX;
+        }
+        handlePackageSwipe();
+      },
+      { passive: true },
+    );
 
     function handlePackageSwipe() {
       const swipeThreshold = 50;
       if (pTouchStartX - pTouchEndX > swipeThreshold) {
-        // Swiped left, go next
         currentPackage = (currentPackage + 1) % packageCards.length;
         updatePackages(currentPackage);
       }
       if (pTouchEndX - pTouchStartX > swipeThreshold) {
-        // Swiped right, go prev
-        currentPackage = (currentPackage - 1 + packageCards.length) % packageCards.length;
+        currentPackage =
+          (currentPackage - 1 + packageCards.length) % packageCards.length;
         updatePackages(currentPackage);
       }
     }
 
-    // Dot click listeners
+    /* dot click listeners */
     if (packageDots.length > 0) {
       packageDots.forEach((dot, index) => {
         dot.addEventListener("click", () => {

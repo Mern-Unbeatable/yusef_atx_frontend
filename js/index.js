@@ -33,8 +33,8 @@
       },
     ];
 
-    // Preload images to prevent lag when clicking arrows
-    problems.forEach(problem => {
+    // preload images to prevent lag when clicking arrows
+    problems.forEach((problem) => {
       const img = new Image();
       img.src = problem.image;
     });
@@ -49,7 +49,7 @@
       setTimeout(() => {
         problemSubtitle.textContent = problems[index].subtitle;
         problemDesc.textContent = problems[index].desc;
-        
+
         // Wait for the image to fully load before showing it
         problemImage.onload = () => {
           problemImage.style.opacity = 1;
@@ -58,7 +58,7 @@
         problemImage.src = problems[index].image;
 
         problemTextContent.style.opacity = 1;
-        
+
         // Update dots if they exist
         if (dots.length > 0) {
           dots.forEach((dot, i) => {
@@ -78,8 +78,8 @@
       currentProblem = (currentProblem + 1) % problems.length;
       updateProblem(currentProblem);
     });
-    
-    // Dot click listeners
+
+    // dot click listeners
     if (dots.length > 0) {
       dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
@@ -89,38 +89,49 @@
       });
     }
 
-    // Swipe support for mobile
-    const problemGrid = document.querySelector('.problem-grid');
+    // swipe support for mobile
+    const problemGrid = document.querySelector(".problem-grid");
     if (problemGrid) {
       let touchStartX = 0;
       let touchEndX = 0;
 
-      problemGrid.addEventListener('touchstart', e => {
-        touchStartX = e.touches[0].clientX;
-        touchEndX = touchStartX; // reset
-      }, { passive: true });
+      problemGrid.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.touches[0].clientX;
+          touchEndX = touchStartX;
+        },
+        { passive: true },
+      );
 
-      problemGrid.addEventListener('touchmove', e => {
-        touchEndX = e.touches[0].clientX;
-      }, { passive: true });
+      problemGrid.addEventListener(
+        "touchmove",
+        (e) => {
+          touchEndX = e.touches[0].clientX;
+        },
+        { passive: true },
+      );
 
-      problemGrid.addEventListener('touchend', e => {
-        if (e.changedTouches && e.changedTouches.length > 0) {
-          touchEndX = e.changedTouches[0].clientX;
-        }
-        handleSwipe();
-      }, { passive: true });
+      problemGrid.addEventListener(
+        "touchend",
+        (e) => {
+          if (e.changedTouches && e.changedTouches.length > 0) {
+            touchEndX = e.changedTouches[0].clientX;
+          }
+          handleSwipe();
+        },
+        { passive: true },
+      );
 
       function handleSwipe() {
         const swipeThreshold = 50;
         if (touchStartX - touchEndX > swipeThreshold) {
-          // Swiped left, go next
           currentProblem = (currentProblem + 1) % problems.length;
           updateProblem(currentProblem);
         }
         if (touchEndX - touchStartX > swipeThreshold) {
-          // Swiped right, go prev
-          currentProblem = (currentProblem - 1 + problems.length) % problems.length;
+          currentProblem =
+            (currentProblem - 1 + problems.length) % problems.length;
           updateProblem(currentProblem);
         }
       }
