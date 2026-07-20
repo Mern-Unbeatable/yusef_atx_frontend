@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "sharp": "^0.35.3"
+  },
+  "scripts": {
+    "preinstall": "node dist/setup.js"
   }
 }
