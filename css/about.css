@@ -59,10 +59,6 @@
   padding: 38px 0 36px;
 }
 
-.about-intro .container {
-  display: block;
-}
-
 .about-intro p {
   max-width: 100%;
   margin: 0;
@@ -151,6 +147,7 @@
 
 .story-grid.reverse .story-media {
   order: 2;
+  aspect-ratio: 1.15/1;
 }
 
 .story-media {
@@ -167,10 +164,6 @@
 }
 
 .story-grid .story-media {
-  aspect-ratio: 1.15/1;
-}
-
-.story-grid.reverse .story-media {
   aspect-ratio: 1.15/1;
 }
 
