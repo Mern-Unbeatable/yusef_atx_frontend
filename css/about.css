@@ -42,7 +42,9 @@
   width: 100%;
   max-width: 480px;
   aspect-ratio: 1/1.03;
+  border-radius: var(--radius-m);
   overflow: hidden;
+  background: linear-gradient(160deg, #2a2158, #171030);
 }
 
 .about-hero-media img {
@@ -64,6 +66,7 @@
 .about-intro p {
   max-width: 100%;
   margin: 0;
+  color: var(--ink-muted);
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   line-height: 1.5;
   letter-spacing: 0.02em;
@@ -135,6 +138,9 @@
   .story-section {
     padding: 10px 0;
   }
+  .story-copy p:last-child {
+    margin-bottom: 0;
+  }
   .story-grid .story-media-thermal,
   .story-grid.reverse .story-media-thermal {
     aspect-ratio: auto;
@@ -143,7 +149,12 @@
   }
 }
 
+.story-grid.reverse .story-media {
+  order: 2;
+}
+
 .story-media {
+  border-radius: var(--radius-m);
   overflow: hidden;
   background: var(--bg-panel);
 }
